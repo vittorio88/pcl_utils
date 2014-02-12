@@ -9,7 +9,7 @@
 #include <message_filters/subscriber.h>
 #include <pcl_ros/point_cloud.h>
 #include <pcl/point_types.h>
-#include <pcl/visualization/cloud_viewer.h>
+#include <pcl/visualization/cloud_viewer.h> // DEPRECATED
 #include <pcl/io/pcd_io.h>
 
 
@@ -38,7 +38,7 @@ public:
 		 boost::shared_ptr <pcl::PointCloud <pcl::PointXYZ> > pclCloudBoostPtr (new pcl::PointCloud<pcl::PointXYZ> );
 
 
-		if (!viewer.wasStopped())  viewer.showCloud (pclCloudBoostPtr, "This is the cloud that was saved!"); 
+		if (!viewer.wasStopped())  viewer.showCloud (pclCloudBoostPtr, "This is the cloud that was saved!"); // IGNORE ECLIPSE ERROR HERE. COMPILER WORKS.
 		cloudCounter++;
 		if ( cloudCounter == 5 ) {
 

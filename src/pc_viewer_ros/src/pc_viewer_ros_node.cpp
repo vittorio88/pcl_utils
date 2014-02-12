@@ -34,7 +34,8 @@ public:
 	void cloud_cb(const boost::shared_ptr<const sensor_msgs::PointCloud2>& rototranslatedpcBoostPtr){
 		boost::shared_ptr <pcl::PointCloud <pcl::PointXYZ> > pclCloudBoostPtr (new pcl::PointCloud<pcl::PointXYZ> );
 
-		pcl::fromROSMsg( *rototranslatedpcBoostPtr , *pclCloudBoostPtr );
+
+		pcl::fromROSMsg( *rototranslatedpcBoostPtr , *pclCloudBoostPtr ); // ORIG WORKING
 
 		//		// Perform voxel filter
 		//		boost::shared_ptr <pcl::PointCloud <pcl::PointXYZ> > filteredCloudBoostPtr (new pcl::PointCloud<pcl::PointXYZ> ); // Uncomment to use filtering
@@ -51,7 +52,7 @@ public:
 		//
 		//		  std::cout<<filteredCloudBoostPtr->points.size ()<<std::endl;
 		// if (!viewer.wasStopped())	viewer.showCloud (filteredCloudBoostPtr, "sample cloud");
-		if (!viewer.wasStopped())	viewer.showCloud (pclCloudBoostPtr, "sample cloud"); // Comment me if using filter
+		if (!viewer.wasStopped())	viewer.showCloud ( pclCloudBoostPtr, "sample cloud"); // IGNORE ECLIPSE ERROR HERE. COMPILER WORKS.
 
 	}
 };
